@@ -1,0 +1,240 @@
+[
+  {
+    "day": 1,
+    "meal": "Lunch",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day01\\D1_Lunch_Regular_FoodFocus_V4.png",
+    "destination": "assets\\day01\\D1_Lunch_Regular.webp"
+  },
+  {
+    "day": 1,
+    "meal": "Lunch",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day01\\D1_Lunch_Luxury_FoodFocus_V4.png",
+    "destination": "assets\\day01\\D1_Lunch_Luxury.webp"
+  },
+  {
+    "day": 1,
+    "meal": "Dinner",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day01\\D1_Dinner_Regular_Service_V4.png",
+    "destination": "assets\\day01\\D1_Dinner_Regular.webp"
+  },
+  {
+    "day": 1,
+    "meal": "Dinner",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day01\\D1_Dinner_Luxury_Service_V4.png",
+    "destination": "assets\\day01\\D1_Dinner_Luxury.webp"
+  },
+  {
+    "day": 2,
+    "meal": "Breakfast",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day02\\D2_Breakfast_Regular_Service_V4.png",
+    "destination": "assets\\day02\\D2_Breakfast_Regular.webp"
+  },
+  {
+    "day": 2,
+    "meal": "Breakfast",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day02\\D2_Breakfast_Luxury_Service_V4.png",
+    "destination": "assets\\day02\\D2_Breakfast_Luxury.webp"
+  },
+  {
+    "day": 2,
+    "meal": "Lunch",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day02\\D2_Lunch_Regular_FoodFocus_V4.png",
+    "destination": "assets\\day02\\D2_Lunch_Regular.webp"
+  },
+  {
+    "day": 2,
+    "meal": "Lunch",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day02\\D2_Lunch_Luxury_FoodFocus_V4.png",
+    "destination": "assets\\day02\\D2_Lunch_Luxury.webp"
+  },
+  {
+    "day": 2,
+    "meal": "Dinner",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day02\\D2_Dinner_Regular_SimpleSetting_V5.png",
+    "destination": "assets\\day02\\D2_Dinner_Regular.webp"
+  },
+  {
+    "day": 2,
+    "meal": "Dinner",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day02\\D2_Dinner_Luxury_Service_V4.png",
+    "destination": "assets\\day02\\D2_Dinner_Luxury.webp"
+  },
+  {
+    "day": 3,
+    "meal": "Breakfast",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day03\\D3_Breakfast_Regular_Service_V4.png",
+    "destination": "assets\\day03\\D3_Breakfast_Regular.webp"
+  },
+  {
+    "day": 3,
+    "meal": "Breakfast",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day03\\D3_Breakfast_Luxury_Service_V4.png",
+    "destination": "assets\\day03\\D3_Breakfast_Luxury.webp"
+  },
+  {
+    "day": 3,
+    "meal": "Lunch",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day03\\D3_Lunch_Regular_FoodFocus_V4.png",
+    "destination": "assets\\day03\\D3_Lunch_Regular.webp"
+  },
+  {
+    "day": 3,
+    "meal": "Lunch",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day03\\D3_Lunch_Luxury_FoodFocus_V4.png",
+    "destination": "assets\\day03\\D3_Lunch_Luxury.webp"
+  },
+  {
+    "day": 3,
+    "meal": "Dinner",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day03\\D3_Dinner_Regular_Service_V4.png",
+    "destination": "assets\\day03\\D3_Dinner_Regular.webp"
+  },
+  {
+    "day": 3,
+    "meal": "Dinner",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day03\\D3_Dinner_Luxury_Service_V4.png",
+    "destination": "assets\\day03\\D3_Dinner_Luxury.webp"
+  },
+  {
+    "day": 4,
+    "meal": "Breakfast",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day04\\D4_Breakfast_Regular_Service_V4.png",
+    "destination": "assets\\day04\\D4_Breakfast_Regular.webp"
+  },
+  {
+    "day": 4,
+    "meal": "Breakfast",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day04\\D4_Breakfast_Luxury_Service_V4.png",
+    "destination": "assets\\day04\\D4_Breakfast_Luxury.webp"
+  },
+  {
+    "day": 4,
+    "meal": "Lunch",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day04\\D4_Lunch_Regular_FoodFocus_V4.png",
+    "destination": "assets\\day04\\D4_Lunch_Regular.webp"
+  },
+  {
+    "day": 4,
+    "meal": "Lunch",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day04\\D4_Lunch_Luxury_FoodFocus_V4.png",
+    "destination": "assets\\day04\\D4_Lunch_Luxury.webp"
+  },
+  {
+    "day": 4,
+    "meal": "Dinner",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day04\\D4_Dinner_Regular_PlateSupported_V5.png",
+    "destination": "assets\\day04\\D4_Dinner_Regular.webp"
+  },
+  {
+    "day": 4,
+    "meal": "Dinner",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day04\\D4_Dinner_Luxury_Service_V4.png",
+    "destination": "assets\\day04\\D4_Dinner_Luxury.webp"
+  },
+  {
+    "day": 5,
+    "meal": "Breakfast",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day05_V7_HalfLobsterLunch\\D5_Breakfast_Regular_Service_V4.png",
+    "destination": "assets\\day05\\D5_Breakfast_Regular.webp"
+  },
+  {
+    "day": 5,
+    "meal": "Breakfast",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day05_V7_HalfLobsterLunch\\D5_Breakfast_Luxury_Service_V4.png",
+    "destination": "assets\\day05\\D5_Breakfast_Luxury.webp"
+  },
+  {
+    "day": 5,
+    "meal": "Lunch",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day05_V7_HalfLobsterLunch\\D5_Lunch_Regular_FoodFocus_V4.png",
+    "destination": "assets\\day05\\D5_Lunch_Regular.webp"
+  },
+  {
+    "day": 5,
+    "meal": "Lunch",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day05_V7_HalfLobsterLunch\\D5_Lunch_Luxury_HalfLobsterSeafood_V7.png",
+    "destination": "assets\\day05\\D5_Lunch_Luxury.webp"
+  },
+  {
+    "day": 5,
+    "meal": "Dinner",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day05_V7_HalfLobsterLunch\\D5_Dinner_Regular_Service_V4.png",
+    "destination": "assets\\day05\\D5_Dinner_Regular.webp"
+  },
+  {
+    "day": 5,
+    "meal": "Dinner",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day05_V7_HalfLobsterLunch\\D5_Dinner_Luxury_Service_V4.png",
+    "destination": "assets\\day05\\D5_Dinner_Luxury.webp"
+  },
+  {
+    "day": 6,
+    "meal": "Breakfast",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day06\\D6_Breakfast_Regular_Service_V4.png",
+    "destination": "assets\\day06\\D6_Breakfast_Regular.webp"
+  },
+  {
+    "day": 6,
+    "meal": "Breakfast",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day06\\D6_Breakfast_Luxury_Service_V4.png",
+    "destination": "assets\\day06\\D6_Breakfast_Luxury.webp"
+  },
+  {
+    "day": 6,
+    "meal": "Lunch",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day06\\D6_Lunch_Regular_SixDishesSoup_V4.png",
+    "destination": "assets\\day06\\D6_Lunch_Regular.webp"
+  },
+  {
+    "day": 6,
+    "meal": "Lunch",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day06\\D6_Lunch_Luxury_MichelinCantonese_V4.png",
+    "destination": "assets\\day06\\D6_Lunch_Luxury.webp"
+  },
+  {
+    "day": 6,
+    "meal": "Dinner",
+    "level": "regular",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day06\\D6_Dinner_Regular_Service_V4.png",
+    "destination": "assets\\day06\\D6_Dinner_Regular.webp"
+  },
+  {
+    "day": 6,
+    "meal": "Dinner",
+    "level": "luxury",
+    "source": "C:\\Users\\doreenlin\\.codex\\.chatgpt-projects\\g-p-69ba5d0de5f4819192459a1e26352569\\outputs\\stimuli_image_library\\V4_Dining_Service\\Day06\\D6_Dinner_Luxury_PrivateCultural_V4.png",
+    "destination": "assets\\day06\\D6_Dinner_Luxury.webp"
+  }
+]

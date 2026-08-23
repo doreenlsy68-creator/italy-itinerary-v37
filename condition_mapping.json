@@ -1,0 +1,58 @@
+[
+  {
+    "condition": "C1",
+    "accommodation": "low",
+    "itinerary": "low",
+    "dining": "low",
+    "file": "C1.html"
+  },
+  {
+    "condition": "C2",
+    "accommodation": "low",
+    "itinerary": "low",
+    "dining": "high",
+    "file": "C2.html"
+  },
+  {
+    "condition": "C3",
+    "accommodation": "low",
+    "itinerary": "high",
+    "dining": "low",
+    "file": "C3.html"
+  },
+  {
+    "condition": "C4",
+    "accommodation": "low",
+    "itinerary": "high",
+    "dining": "high",
+    "file": "C4.html"
+  },
+  {
+    "condition": "C5",
+    "accommodation": "high",
+    "itinerary": "low",
+    "dining": "low",
+    "file": "C5.html"
+  },
+  {
+    "condition": "C6",
+    "accommodation": "high",
+    "itinerary": "low",
+    "dining": "high",
+    "file": "C6.html"
+  },
+  {
+    "condition": "C7",
+    "accommodation": "high",
+    "itinerary": "high",
+    "dining": "low",
+    "file": "C7.html"
+  },
+  {
+    "condition": "C8",
+    "accommodation": "high",
+    "itinerary": "high",
+    "dining": "high",
+    "file": "C8.html"
+  }
+]

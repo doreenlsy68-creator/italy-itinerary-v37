@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>C6 v37｜雲品旅遊 NUVOLA BELLA TRAVEL</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700;900&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#16261C;--green2:#1E3326;--bone:#F4F2EC;--bone2:#EBE8DF;--amber:#D98E32;--ink:#22271F;--muted:#6E7268}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bone);color:var(--ink);font-size:15px;line-height:1.85}
+nav{position:fixed;top:0;width:100%;z-index:100;height:68px;background:color-mix(in srgb,var(--green) 92%,transparent);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,56px)}
+.logo{font-family:'Noto Serif TC',serif;font-weight:900;color:var(--bone);font-size:18px;letter-spacing:1.5px;white-space:nowrap}
+.logo span{color:var(--amber)}
+.nav-r{display:flex;align-items:center;gap:32px}
+.nav-r a{color:rgba(244,242,236,0.75);text-decoration:none;font-size:13px;letter-spacing:1px}
+.nav-cta{background:var(--amber);color:var(--green)!important;padding:9px 22px;border-radius:12px;font-weight:700!important}
+.hero{min-height:100dvh;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(200deg,rgba(22,38,28,0.05) 30%,rgba(22,38,28,0.72) 78%,rgba(22,38,28,0.92) 100%)}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,56px) clamp(48px,7vh,84px)}
+.hero-eyebrow{display:inline-block;font-size:11px;letter-spacing:5px;color:var(--amber);border:1px solid color-mix(in srgb,var(--amber) 55%,transparent);padding:6px 18px;border-radius:12px;margin-bottom:22px}
+.hero h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(40px,7vw,84px);line-height:1.12;color:var(--bone);max-width:14ch}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero p.sub{margin:18px 0 30px;font-size:16px;font-weight:300;color:rgba(244,242,236,0.85);max-width:34ch}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-size:14px;font-weight:700;letter-spacing:1px;padding:15px 38px;border-radius:12px;text-decoration:none;display:inline-block;transition:transform .15s ease}
+.btn:active{transform:translateY(1px) scale(0.98)}
+.btn-amber{background:var(--amber);color:var(--green)}
+.btn-ghost{color:var(--bone);border:1px solid rgba(244,242,236,0.45)}
+.facts{background:var(--green);color:var(--bone);display:grid;grid-template-columns:repeat(3,1fr)}
+.fact{padding:30px 20px;text-align:center;border-right:1px solid rgba(244,242,236,0.08)}
+.fact:last-child{border-right:none}
+.fact b{font-family:'Noto Serif TC',serif;font-weight:900;font-size:34px;color:var(--amber);display:block;line-height:1.1}
+.fact span{font-size:12px;letter-spacing:2px;color:rgba(244,242,236,0.55)}
+
+/* ── 行程特色一覽（操弄變數等權呈現）── */
+.overview{background:var(--bone2);padding:clamp(48px,7vh,72px) clamp(16px,3vw,32px)}
+.ov-inner{max-width:1080px;margin:0 auto}
+.ov-title{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(26px,3.6vw,36px);color:var(--green);margin-bottom:30px}
+.ov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ov-card{background:#fff;border-radius:12px;padding:28px 26px;border-top:4px solid var(--amber)}
+.ov-cat{font-size:12px;font-weight:700;letter-spacing:4px;color:var(--amber);margin-bottom:10px}
+.ov-head{font-family:'Noto Serif TC',serif;font-weight:900;font-size:22px;color:var(--green);line-height:1.35;margin-bottom:10px}
+.ov-body{font-size:13.5px;color:#565B50;line-height:1.8}
+
+.route{background:#fff;border-bottom:1px solid var(--bone2);padding:18px clamp(20px,4vw,56px);display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.route b{color:var(--ink);font-weight:500}
+.route i{font-style:normal;color:var(--amber)}
+main{max-width:1080px;margin:0 auto;padding:clamp(48px,8vh,84px) clamp(16px,3vw,32px) 96px}
+.sec-title{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(28px,4vw,40px);color:var(--green);margin-bottom:10px}
+.sec-lede{color:var(--muted);max-width:52ch;margin-bottom:52px}
+.day{background:#fff;border-radius:12px;overflow:hidden;margin-bottom:44px;box-shadow:0 6px 32px rgba(22,38,28,0.09)}
+.day-media{position:relative;height:clamp(220px,36vw,340px);overflow:hidden}
+.day-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.day:hover .day-media img{transform:scale(1.035)}
+.day-media-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,38,28,0.86),rgba(22,38,28,0.12) 55%,transparent)}
+.day-media-text{position:absolute;left:0;right:0;bottom:0;padding:22px clamp(20px,4vw,40px)}
+.day-num{display:inline-block;background:var(--amber);color:var(--green);font-size:11px;font-weight:700;letter-spacing:2.5px;padding:5px 15px;border-radius:12px;margin-bottom:10px}
+.day-city{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(24px,3.4vw,34px);color:var(--bone);line-height:1.2}
+.day-tagline{font-size:13px;font-weight:300;color:rgba(244,242,236,0.72);margin-top:2px}
+.day-content{padding:clamp(24px,4vw,44px)}
+
+/* ── 三因子等權區塊 ── */
+.fac-block{margin-bottom:30px}
+.fac-block:last-child{margin-bottom:0}
+.fac-head{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid var(--bone2)}
+.fac-tag{background:var(--amber);color:var(--green);font-size:11px;font-weight:700;letter-spacing:3px;padding:4px 14px;border-radius:12px}
+.fac-name{font-family:'Noto Serif TC',serif;font-weight:900;font-size:19px;color:var(--green)}
+.fac-list{list-style:none}
+.fac-list li{font-size:14px;line-height:1.9;color:#3d423a;padding:2px 0 2px 14px;position:relative}
+.fac-list li::before{content:'';position:absolute;left:0;top:0.9em;width:4px;height:4px;border-radius:50%;background:var(--amber)}
+.fac-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.fac-cols .fac-block{margin-bottom:0}
+
+.timeline{margin-bottom:4px}
+.tl-item{display:grid;grid-template-columns:56px 36px 1fr;align-items:start;position:relative;padding-bottom:26px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:'';position:absolute;left:73px;top:20px;bottom:-6px;width:2px;background:var(--bone2)}
+.tl-item:last-child::before{display:none}
+.tl-time{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:1px;text-align:right;padding-top:5px}
+.tl-node{width:10px;height:10px;border-radius:50%;background:#CFCBBE;border:3px solid #fff;box-shadow:0 0 0 2px #CFCBBE;margin:8px auto 0;position:relative;z-index:1}
+.tl-node-hl{width:15px;height:15px;background:var(--amber);box-shadow:0 0 0 3px color-mix(in srgb,var(--amber) 30%,transparent);margin-top:7px}
+.tl-content{padding-left:6px}
+.tl-title{font-size:15px;font-weight:500;color:#565B50;line-height:1.55}
+.tl-title-hl{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:900;color:var(--green);line-height:1.4;display:inline;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--amber) 32%,transparent) 62%)}
+.tl-desc{font-size:13px;color:var(--muted);line-height:1.75;margin-top:3px}
+.tl-hl .tl-desc{color:#565B50;font-size:13.5px}
+
+footer{background:var(--green);color:rgba(244,242,236,0.5);padding:56px clamp(20px,4vw,56px);text-align:center}
+.f-logo{font-family:'Noto Serif TC',serif;font-weight:900;color:var(--bone);font-size:24px;letter-spacing:2px;margin-bottom:8px}
+.f-logo span{color:var(--amber)}
+.f-tag{font-size:12px;letter-spacing:2px;margin-bottom:26px}
+.f-links{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-bottom:22px}
+.f-links a{color:rgba(244,242,236,0.45);text-decoration:none;font-size:12.5px}
+.f-copy{font-size:11px;color:rgba(244,242,236,0.28)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.hero-inner>*{opacity:0;transform:translateY(16px);animation:rise .8s ease forwards}
+.hero-inner>*:nth-child(2){animation-delay:.12s}
+.hero-inner>*:nth-child(3){animation-delay:.24s}
+.hero-inner>*:nth-child(4){animation-delay:.36s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero-inner>*{opacity:1;transform:none;animation:none}
+  .day-media img,.btn{transition:none}
+}
+@media(max-width:820px){
+  .nav-r a:not(.nav-cta){display:none}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .fact:nth-child(2){border-right:none}
+  .fact{border-bottom:1px solid rgba(244,242,236,0.08)}
+  .fact:nth-child(3),.fact:nth-child(4){border-bottom:none}
+  .ov-grid{grid-template-columns:1fr}
+  .tl-item{grid-template-columns:44px 30px 1fr}
+  .tl-item::before{left:58px}
+  .tl-title-hl{font-size:18px}
+  .fac-cols{grid-template-columns:1fr;gap:26px}
+}
+@media(max-width:520px){
+  nav{height:58px;padding-left:16px;padding-right:16px}
+  .logo{font-size:15px;letter-spacing:1px}
+  .nav-cta{padding:8px 14px}
+  .hero{min-height:88svh}
+  .hero-inner{padding-left:18px;padding-right:18px;padding-bottom:40px}
+  .hero h1{font-size:clamp(38px,12vw,54px)}
+  .hero p.sub{font-size:15px;line-height:1.7}
+  .hero-ctas{display:grid;grid-template-columns:1fr 1fr}
+  .btn{padding:13px 12px;text-align:center}
+  .fact{padding:22px 10px}
+  .fact b{font-size:28px}
+  .overview{padding-left:14px;padding-right:14px}
+  .ov-card{padding:22px 20px}
+  .route{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;white-space:nowrap}
+  main{padding-left:12px;padding-right:12px;padding-bottom:64px}
+  .sec-lede{margin-bottom:32px}
+  .day{margin-bottom:28px;border-radius:10px}
+  .day-media{height:230px}
+  .day-content{padding:22px 18px}
+  .tl-item{grid-template-columns:42px 26px 1fr}
+  .tl-item::before{left:54px}
+  .tl-title{font-size:14px}
+  .tl-title-hl{font-size:17px}
+  .fac-list li{font-size:13.5px}
+  footer{padding-top:44px;padding-bottom:calc(44px + env(safe-area-inset-bottom))}
+}
+
+
+/* Daily image set — shared structure for all 2×2×2 conditions */
+.daily-gallery{margin:0 0 34px}
+.daily-gallery-title{font-family:'Noto Serif TC',serif;font-size:18px;font-weight:900;color:var(--green);margin-bottom:14px}
+.daily-gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
+.daily-shot{position:relative;overflow:hidden;border-radius:10px;background:var(--bone2);min-height:170px}
+.daily-shot img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.daily-shot:hover img{transform:scale(1.025)}
+.daily-shot figcaption{position:absolute;left:9px;bottom:9px;padding:5px 10px;border-radius:999px;background:rgba(22,38,28,.82);color:#fff;font-size:11px;letter-spacing:1px;backdrop-filter:blur(6px)}
+.daily-shot--wide{grid-column:span 7;min-height:260px}
+.daily-shot--side{grid-column:span 5;min-height:260px}
+.daily-shot--meal{grid-column:span 4}
+.daily-shot--half{grid-column:span 6}
+@media(max-width:820px){
+  .daily-shot--wide,.daily-shot--side{grid-column:span 6;min-height:210px}
+  .daily-shot--meal{grid-column:span 4;min-height:150px}
+}
+@media(max-width:520px){
+  .daily-gallery{margin-bottom:28px}
+  .daily-gallery-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .daily-shot,.daily-shot--wide,.daily-shot--side,.daily-shot--meal,.daily-shot--half{grid-column:auto;min-height:132px}
+  .daily-shot--wide{grid-column:1/-1;min-height:205px}
+  .daily-shot figcaption{left:7px;bottom:7px;font-size:10px;padding:4px 8px}
+}
+
+
+
+/* Images sit inside their corresponding experimental factor blocks. */
+.factor-images{display:grid;gap:10px;margin:18px 0 22px}
+.factor-images--itinerary{grid-template-columns:1fr;width:min(76%,720px);margin-left:auto;margin-right:auto}
+.factor-images--stay,.factor-images--dining{grid-template-columns:repeat(3,1fr)}
+.factor-image{position:relative;overflow:hidden;border-radius:10px;background:var(--bone2);height:180px}
+.factor-images--itinerary .factor-image{height:auto;aspect-ratio:4/3}
+.factor-images--itinerary .factor-image img{object-fit:contain}
+.factor-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.factor-image:hover img{transform:scale(1.025)}
+.factor-image figcaption{position:absolute;left:9px;bottom:9px;padding:5px 10px;border-radius:999px;background:rgba(22,38,28,.82);color:#fff;font-size:11px;letter-spacing:1px;backdrop-filter:blur(6px)}
+@media(max-width:820px){
+  .facts{grid-template-columns:repeat(3,1fr)}
+  .fact,.fact:nth-child(2),.fact:nth-child(3){border-right:1px solid rgba(244,242,236,0.08);border-bottom:none}
+  .fact:last-child{border-right:none}
+  .factor-images--itinerary .factor-image{height:auto;aspect-ratio:4/3}
+  .factor-images--itinerary{width:min(88%,620px)}
+  .factor-image{height:150px}
+}
+@media(max-width:520px){
+  .factor-images{gap:8px;margin:14px 0 18px}
+  .factor-images--itinerary .factor-image{height:auto;aspect-ratio:4/3}
+  .factor-images--itinerary{width:100%}
+  .factor-images--stay,.factor-images--dining{grid-template-columns:1fr 1fr}
+  .factor-images--stay .factor-image:first-child,
+  .factor-images--dining .factor-image:first-child{grid-column:1/-1;height:190px}
+  .factor-image{height:132px}
+  .factor-image figcaption{left:7px;bottom:7px;font-size:10px;padding:4px 8px}
+}
+
+
+
+.fac-icon{width:32px;height:32px;flex:0 0 32px;object-fit:contain}
+.fac-head--with-icon{gap:10px}
+@media(max-width:520px){
+  .fac-icon{width:28px;height:28px;flex-basis:28px}
+}
+
+
+.route-map{background:#f7f4ef;padding:clamp(26px,5vw,60px) clamp(12px,3vw,32px)}
+.route-map-inner{max-width:1280px;margin:0 auto}
+.route-map img{display:block;width:100%;height:auto;object-fit:contain;border-radius:12px;box-shadow:0 8px 30px rgba(22,38,28,.08)}
+/* v03 確認版：移除行程景點圖片；住宿與餐食圖片統一 4:3 */
+.factor-images--itinerary{display:none}
+.factor-images--stay .factor-image,.factor-images--dining .factor-image{height:auto!important;aspect-ratio:4/3}
+.factor-images--stay .factor-image img,.factor-images--dining .factor-image img{object-fit:cover}
+@media(max-width:520px){
+  .route-map{padding:18px 10px}
+  .route-map img{border-radius:8px}
+}
+/* v04B：文字置於圖片上方的暖灰標題列 */
+.factor-image{height:auto!important;aspect-ratio:auto!important;display:flex;flex-direction:column;background:var(--bone2);border:1px solid #ddd8cc}
+.factor-image img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;order:2}
+.factor-image figcaption{position:static;order:1;padding:9px 12px;border-radius:0;background:var(--bone2);color:var(--green);font-size:12px;font-weight:700;letter-spacing:1px;backdrop-filter:none;border-bottom:1px solid #ddd8cc}
+main .day:last-of-type .day-content > .fac-block:last-child{display:none}
+/* v05：第 3 天餐食以「餐別＋內容」顯示於圖上標題列 */
+.factor-images[aria-label="第 3 天dining圖片"] figcaption{min-height:70px;display:flex;flex-direction:column;justify-content:center;gap:2px;line-height:1.45;letter-spacing:0}
+.factor-images[aria-label="第 3 天dining圖片"] figcaption strong{color:var(--amber);font-size:11px;letter-spacing:2px}
+.factor-images[aria-label="第 3 天dining圖片"] figcaption span{color:var(--green);font-size:12px}
+
+/* v06：全日餐食標題與區塊順序 */
+.factor-images--dining figcaption{min-height:70px;display:flex;flex-direction:column;justify-content:center;gap:2px;line-height:1.45;letter-spacing:0}
+.factor-images--dining figcaption strong{color:var(--amber);font-size:11px;letter-spacing:2px}
+.factor-images--dining figcaption span{color:var(--green);font-size:12px}
+.day-content > .fac-block{margin-bottom:30px}
+.day-content > .fac-block:last-child{margin-bottom:0}
+
+/* v17: confirmed v16 presentation applied to all 2x2x2 conditions */
+.logo{display:flex;align-items:center;height:56px;padding:0;background:transparent;overflow:hidden;font-size:0;letter-spacing:0}
+.logo img{display:block;width:clamp(180px,22vw,250px);height:48px;object-fit:contain}
+.factor-images--dining + .fac-list{display:none}
+.factor-images--stay .factor-image img,.factor-images--dining .factor-image img{object-fit:cover!important;object-position:center;background:transparent}
+.factor-images--stay + .fac-list > li:first-child{font-weight:800;color:var(--ink)}
+.factor-images--stay + .fac-list li.stay-feature-title{display:inline-flex;align-items:center;width:auto;margin:.85rem 0 .4rem;padding:.38rem .78rem;border-radius:999px;background:#f3e1ca;color:#9a5719;font-size:.88rem;font-weight:800;line-height:1.2}
+.factor-images--stay + .fac-list li.stay-feature-title::before{content:none;display:none}
+.factor-images--stay + .fac-list li.stay-feature{position:relative;padding-left:1.25rem}
+.factor-images--stay + .fac-list li.stay-feature::before{content:"";display:block;position:absolute;left:.18rem;top:.72em;width:.42rem;height:.42rem;border-radius:50%;background:var(--amber);transform:translateY(-50%)}
+@media(max-width:520px){
+  .logo{height:50px;padding:0;background:transparent}
+  .logo img{width:165px;height:42px}
+}
+
+
+/* v26: attached-PDF blue itinerary phrases rendered in confirmed style */
+.timeline .itinerary-emphasis{font-weight:800;color:#30352F}
+
+
+/* v31: make the regular Day 5 guide label visibly heavier */
+.timeline .itinerary-emphasis--guide{font-weight:800}
+
+</style>
+</head>
+<body data-condition="C6" data-accommodation="high" data-itinerary="low" data-dining="high" data-version="v37-high-day3-scenery-wording">
+<nav>
+<div class="logo"><img src="assets/brand/YunPin_NuvolaBella_DarkBackground_Transparent_V5.png" alt="雲品旅遊 NUVOLA BELLA TRAVEL"></div>
+  <div class="nav-r">
+    <a href="#itinerary">行程總覽</a>
+    </div>
+</nav>
+<header class="hero">
+  <img class="bg" src="assets/day01/D1_Hero.webp" alt="羅馬競技場">
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">2026 精選歐洲</span>
+    <h1>義大利<em>深度之旅</em><br>七日</h1>
+    <p class="sub">五座城市、二十處精選景點，一次旅程走進義大利的千年風華。</p>
+  </div>
+</header>
+<section class="facts">
+  <div class="fact"><b>7</b><span>天 6 夜</span></div>
+  <div class="fact"><b>5</b><span>座城市</span></div>
+  <div class="fact"><b>20+</b><span>精選景點</span></div>
+</section>
+<section class="route-map" aria-label="義大利七日行程地圖"><div class="route-map-inner"><img src="assets/map/italy-7day-map_website-style_v29.png" alt="網站風格義大利七日行程地圖：羅馬、托斯卡尼、佛羅倫斯、威尼斯、米蘭及返程路線" loading="eager" decoding="async"></div></section><div id="overview"></div>
+
+    <div class="route">
+  <b>台北</b><i>→</i><b>羅馬</b><i>→</i><b>托斯卡尼</b><i>→</i><b>佛羅倫斯</b><i>→</i><b>威尼斯</b><i>→</i><b>米蘭</b><i>→</i><b>台北</b>
+</div>
+<main id="itinerary">
+  <h2 class="sec-title">七日完整行程</h2>
+  <p class="sec-lede">每一天的行程、住宿與餐食安排如下。</p>
+  
+        <article class="day reveal">
+          <div class="day-media">
+            <img src="assets/day01/D1_Hero.webp" alt="羅馬" loading="lazy">
+            <div class="day-media-scrim"></div>
+            <div class="day-media-text">
+              <span class="day-num">Day 1</span>
+              <h3 class="day-city">羅馬</h3>
+              <p class="day-tagline">永恆之城，古羅馬帝國的輝煌榮光</p>
+            </div>
+          </div>
+          <div class="day-content">
+            
+            <div class="fac-block">
+              <div class="fac-head"><span class="fac-tag">行程</span></div><div class="factor-images factor-images--itinerary" aria-label="第 1 天itinerary圖片"><figure class="factor-image"><img src="assets/day01/D1_Itinerary_Regular.webp" alt="第 1 天今日行程" loading="lazy" decoding="async"><figcaption>今日行程</figcaption></figure></div>
+              <div class="timeline"><div class="tl-item"><div class="tl-time">行程</div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">抵達羅馬後，前往古羅馬競技場，由<strong class="itinerary-emphasis">導覽人員帶領</strong>參觀，回溯古羅馬時代的往昔榮光</div></div></div><div class="tl-item"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">傍晚在許願池，投下一枚硬幣，期待有一天重返這座充滿歷史與回憶的永恆之城</div></div></div><div class="tl-item" aria-hidden="true" style="visibility:hidden"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title"> </div></div></div></div></div>
+            <div class="fac-block">
+                <div class="fac-head fac-head--with-icon"><img class="fac-icon" src="assets/icons/dining.svg" alt="" aria-hidden="true"><span class="fac-tag">餐食</span></div><div class="factor-images factor-images--dining" aria-label="第 1 天dining圖片"><figure class="factor-image"><img src="assets/day01/D1_Breakfast_Universal_v09.png" alt="第 1 天早餐：機上享用" loading="lazy" decoding="async"><figcaption><strong>早餐</strong><span>機上享用</span></figcaption></figure><figure class="factor-image"><img src="assets/day01/D1_Lunch_Luxury.webp" alt="第 1 天午餐：義式米其林推薦料理(含佐餐酒)" loading="lazy" decoding="async"><figcaption><strong>午餐</strong><span>義式米其林推薦料理(含佐餐酒)</span></figcaption></figure><figure class="factor-image"><img src="assets/day01/D1_Dinner_Luxury.webp" alt="第 1 天晚餐：米其林一星景觀餐廳" loading="lazy" decoding="async"><figcaption><strong>晚餐</strong><span>米其林一星景觀餐廳</span></figcaption></figure></div>
+                <ul class="fac-list"><li>餐廳鄰近西班牙階梯，提供精緻義式料理，搭配主廚特色介紹，氣氛優雅迷人</li></ul></div>
+            <div class="fac-block">
+                <div class="fac-head fac-head--with-icon"><img class="fac-icon" src="assets/icons/hotel.svg" alt="" aria-hidden="true"><span class="fac-tag">住宿</span></div><div class="factor-images factor-images--stay" aria-label="第 1 天stay圖片"><figure class="factor-image"><img src="assets/day01/D1_Hotel_Exterior_Luxury.webp" alt="第 1 天住宿外觀" loading="lazy" decoding="async"><figcaption>住宿外觀</figcaption></figure><figure class="factor-image"><img src="assets/day01/D1_Room_Luxury.webp" alt="第 1 天客房" loading="lazy" decoding="async"><figcaption>客房</figcaption></figure><figure class="factor-image"><img src="assets/day01/D1_Bathroom_Luxury.webp" alt="第 1 天衛浴" loading="lazy" decoding="async"><figcaption>衛浴</figcaption></figure></div>
+                <ul class="fac-list"><li>羅馬市區五星 Palazzo della Luna Roma</li><li>《Deluxe Room》約35平米，附浴缸及步入式淋浴間</li><li class="stay-feature-title">住宿特色</li><li class="stay-feature">18世紀華麗宮殿改建，屹立於西班牙階梯之上，鄰近各大景點</li><li class="stay-feature">屋頂陽台酒吧Cielo欣賞醉人羅馬美景</li></ul></div>
+              </div>
+        </article>
+        <article class="day reveal">
+          <div class="day-media">
+            <img src="assets/day02/D2_Hero.webp" alt="托斯卡尼" loading="lazy">
+            <div class="day-media-scrim"></div>
+            <div class="day-media-text">
+              <span class="day-num">Day 2</span>
+              <h3 class="day-city">托斯卡尼</h3>
+              <p class="day-tagline">金黃丘陵，義大利最美鄉村風光</p>
+            </div>
+          </div>
+          <div class="day-content">
+            
+            <div class="fac-block">
+              <div class="fac-head"><span class="fac-tag">行程</span></div><div class="factor-images factor-images--itinerary" aria-label="第 2 天itinerary圖片"><figure class="factor-image"><img src="assets/day02/D2_Itinerary_Regular.webp" alt="第 2 天今日行程" loading="lazy" decoding="async"><figcaption>今日行程</figcaption></figure></div>
+              <div class="timeline"><div class="tl-item"><div class="tl-time">行程</div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">前往遺世獨立的天空之城皮恩札，下車參觀【世界文化遺產】（UNESCO 1996年入列）。</div></div></div><div class="tl-item"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">隨後前往托斯卡尼莊園酒莊參加<strong class="itinerary-emphasis">品酒體驗</strong>，認識當地葡萄酒特色。</div></div></div><div class="tl-item"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">晚餐後，自由漫步莊園，欣賞托斯卡尼靜謐夜色。</div></div></div></div></div>
+            <div class="fac-block">
+                <div class="fac-head fac-head--with-icon"><img class="fac-icon" src="assets/icons/dining.svg" alt="" aria-hidden="true"><span class="fac-tag">餐食</span></div><div class="factor-images factor-images--dining" aria-label="第 2 天dining圖片"><figure class="factor-image"><img src="assets/day02/D2_Breakfast_Luxury.webp" alt="第 2 天早餐：主廚現點現做早餐（A la Carte）" loading="lazy" decoding="async"><figcaption><strong>早餐</strong><span>主廚現點現做早餐（A la Carte）</span></figcaption></figure><figure class="factor-image"><img src="assets/day02/D2_Lunch_Luxury.webp" alt="第 2 天午餐：葡萄園特色料理（含佐餐酒）" loading="lazy" decoding="async"><figcaption><strong>午餐</strong><span>葡萄園特色料理（含佐餐酒）</span></figcaption></figure><figure class="factor-image"><img src="assets/day02/D2_Dinner_Luxury.webp" alt="第 2 天晚餐：米其林星級餐廳" loading="lazy" decoding="async"><figcaption><strong>晚餐</strong><span>米其林星級餐廳</span></figcaption></figure></div>
+                <ul class="fac-list"><li>餐廳位於托斯卡尼莊園，提供精緻義式料理，由主廚介紹當日特色餐點</li></ul></div>
+            <div class="fac-block">
+                <div class="fac-head fac-head--with-icon"><img class="fac-icon" src="assets/icons/hotel.svg" alt="" aria-hidden="true"><span class="fac-tag">住宿</span></div><div class="factor-images factor-images--stay" aria-label="第 2 天stay圖片"><figure class="factor-image"><img src="assets/day02/D2_Hotel_Exterior_Luxury.webp" alt="第 2 天住宿外觀" loading="lazy" decoding="async"><figcaption>住宿外觀</figcaption></figure><figure class="factor-image"><img src="assets/day02/D2_Room_Luxury.webp" alt="第 2 天客房" loading="lazy" decoding="async"><figcaption>客房</figcaption></figure><figure class="factor-image"><img src="assets/day02/D2_Bathroom_Luxury.webp" alt="第 2 天衛浴" loading="lazy" decoding="async"><figcaption>衛浴</figcaption></figure></div>
+                <ul class="fac-list"><li>托斯卡尼五星莊園酒店 Tenuta Bellavigna Toscana</li><li>《Junior Suite》50平米，有寧靜的露台，以及浴缸</li><li class="stay-feature-title">住宿特色</li><li class="stay-feature">位於托斯卡尼鄉村，享有托斯卡納山丘景色</li><li class="stay-feature">莊園融合歷史建築，提供精緻休閒設施</li></ul></div>
+              </div>
+        </article>
+        <article class="day reveal">
+          <div class="day-media">
+            <img src="assets/day03/D3_Hero.webp" alt="佛羅倫斯" loading="lazy">
+            <div class="day-media-scrim"></div>
+            <div class="day-media-text">
+              <span class="day-num">Day 3</span>
+              <h3 class="day-city">佛羅倫斯</h3>
+              <p class="day-tagline">百花之城，文藝復興的發源搖籃</p>
+            </div>
+          </div>
+          <div class="day-content">
+            
+            <div class="fac-block">
+              <div class="fac-head"><span class="fac-tag">行程</span></div><div class="factor-images factor-images--itinerary" aria-label="第 3 天itinerary圖片"><figure class="factor-image"><img src="assets/day03/D3_Itinerary_Regular.webp" alt="第 3 天今日行程" loading="lazy" decoding="async"><figcaption>今日行程</figcaption></figure></div>
+              <div class="timeline"><div class="tl-item"><div class="tl-time">行程</div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">細細品味百花之城翡冷翠【世界文化遺產】(UNESCO 1982年入列)</div></div></div><div class="tl-item"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">前往佛羅倫斯近郊，參加<strong class="itinerary-emphasis">團體松露搜尋體驗</strong>，由<strong class="itinerary-emphasis itinerary-emphasis--guide">導覽人員</strong>介紹松露採集文化。</div></div></div><div class="tl-item"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">隨後前往米開朗基羅廣場，俯瞰佛羅倫斯美麗全景</div></div></div></div></div>
+            <div class="fac-block">
+                <div class="fac-head fac-head--with-icon"><img class="fac-icon" src="assets/icons/dining.svg" alt="" aria-hidden="true"><span class="fac-tag">餐食</span></div><div class="factor-images factor-images--dining" aria-label="第 3 天dining圖片"><figure class="factor-image"><img src="assets/day03/D3_Breakfast_Luxury.webp" alt="第 3 天早餐：主廚現點現做早餐（A la Carte）" loading="lazy" decoding="async"><figcaption><strong>早餐</strong><span>主廚現點現做早餐（A la Carte）</span></figcaption></figure><figure class="factor-image"><img src="assets/day03/D3_Lunch_Luxury.webp" alt="第 3 天午餐：酒莊松露料理(佐餐酒)" loading="lazy" decoding="async"><figcaption><strong>午餐</strong><span>酒莊松露料理(佐餐酒)</span></figcaption></figure><figure class="factor-image"><img src="assets/day03/D3_Dinner_Luxury.webp" alt="第 3 天晚餐：達文西故居三道式晚餐(佐餐酒)" loading="lazy" decoding="async"><figcaption><strong>晚餐</strong><span>達文西故居三道式晚餐(佐餐酒)</span></figcaption></figure></div>
+                <ul class="fac-list"><li>餐廳位於達文西故居，提供三道饗宴，由主廚介紹今日特色餐點</li></ul></div>
+            <div class="fac-block">
+                <div class="fac-head fac-head--with-icon"><img class="fac-icon" src="assets/icons/hotel.svg" alt="" aria-hidden="true"><span class="fac-tag">住宿</span></div><div class="factor-images factor-images--stay" aria-label="第 3 天stay圖片"><figure class="factor-image"><img src="assets/day03/D3_Hotel_Exterior_Luxury.webp" alt="第 3 天住宿外觀" loading="lazy" decoding="async"><figcaption>住宿外觀</figcaption></figure><figure class="factor-image"><img src="assets/day03/D3_Room_Luxury.webp" alt="第 3 天客房" loading="lazy" decoding="async"><figcaption>客房</figcaption></figure><figure class="factor-image"><img src="assets/day03/D3_Bathroom_Luxury.webp" alt="第 3 天衛浴" loading="lazy" decoding="async"><figcaption>衛浴</figcaption></figure></div>
+                <ul class="fac-list"><li>佛羅倫斯市區五星 Palazzo Aurelia Firenze</li><li>《Premier Room》約45平米，帶有花園景觀和浴缸</li><li class="stay-feature-title">住宿特色</li><li class="stay-feature">鄰近大教堂廣場，步行可達市區景點</li><li class="stay-feature">坐擁15世紀宮殿建築與皇家花園，提供精緻休閒設施</li></ul></div>
+              </div>
+        </article>
+        <article class="day reveal">
+          <div class="day-media">
+            <img src="assets/day04/D4_Hero.webp" alt="佛羅倫斯 — 威尼斯" loading="lazy">
+            <div class="day-media-scrim"></div>
+            <div class="day-media-text">
+              <span class="day-num">Day 4</span>
+              <h3 class="day-city">佛羅倫斯 — 威尼斯</h3>
+              <p class="day-tagline">水上之城，貢多拉輕搖慢盪</p>
+            </div>
+          </div>
+          <div class="day-content">
+            
+            <div class="fac-block">
+              <div class="fac-head"><span class="fac-tag">行程</span></div><div class="factor-images factor-images--itinerary" aria-label="第 4 天itinerary圖片"><figure class="factor-image"><img src="assets/day04/D4_Itinerary_Regular.webp" alt="第 4 天今日行程" loading="lazy" decoding="async"><figcaption>今日行程</figcaption></figure></div>
+              <div class="timeline"><div class="tl-item"><div class="tl-time">行程</div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">前往威尼斯</div></div></div><div class="tl-item"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title"><strong class="itinerary-emphasis">登頂聖馬可教堂</strong>，俯瞰威尼斯全景，前往參觀總督府，了解帝國輝煌歷史</div></div></div><div class="tl-item"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">隨後，您將乘坐貢多拉漫遊威尼斯運河，穿過嘆息橋</div></div></div></div></div>
+            <div class="fac-block">
+                <div class="fac-head fac-head--with-icon"><img class="fac-icon" src="assets/icons/dining.svg" alt="" aria-hidden="true"><span class="fac-tag">餐食</span></div><div class="factor-images factor-images--dining" aria-label="第 4 天dining圖片"><figure class="factor-image"><img src="assets/day04/D4_Breakfast_Luxury.webp" alt="第 4 天早餐：主廚現點現做早餐（A la Carte）" loading="lazy" decoding="async"><figcaption><strong>早餐</strong><span>主廚現點現做早餐（A la Carte）</span></figcaption></figure><figure class="factor-image"><img src="assets/day04/D4_Lunch_Luxury.webp" alt="第 4 天午餐：運河旁海鮮午餐" loading="lazy" decoding="async"><figcaption><strong>午餐</strong><span>運河旁海鮮午餐</span></figcaption></figure><figure class="factor-image"><img src="assets/day04/D4_Dinner_Luxury.webp" alt="第 4 天晚餐：米其林二星三道式晚宴（含佐餐酒）" loading="lazy" decoding="async"><figcaption><strong>晚餐</strong><span>米其林二星三道式晚宴（含佐餐酒）</span></figcaption></figure></div>
+                <ul class="fac-list"><li>餐廳位於威尼斯運河畔，提供精緻義式料理，由主廚介紹今日特色餐點</li></ul></div>
+            <div class="fac-block">
+                <div class="fac-head fac-head--with-icon"><img class="fac-icon" src="assets/icons/hotel.svg" alt="" aria-hidden="true"><span class="fac-tag">住宿</span></div><div class="factor-images factor-images--stay" aria-label="第 4 天stay圖片"><figure class="factor-image"><img src="assets/day04/D4_Hotel_Exterior_Luxury.webp" alt="第 4 天住宿外觀" loading="lazy" decoding="async"><figcaption>住宿外觀</figcaption></figure><figure class="factor-image"><img src="assets/day04/D4_Room_Luxury.webp" alt="第 4 天客房" loading="lazy" decoding="async"><figcaption>客房</figcaption></figure><figure class="factor-image"><img src="assets/day04/D4_Bathroom_Luxury.webp" alt="第 4 天衛浴" loading="lazy" decoding="async"><figcaption>衛浴</figcaption></figure></div>
+                <ul class="fac-list"><li>威尼斯運河五星 Palazzo Serenissima Venezia</li><li>《安縵威尼斯宮廷大運河房》約60平米，帶有運河景觀和浴缸</li><li class="stay-feature-title">住宿特色</li><li class="stay-feature">坐擁威尼斯大運河景觀，融合歷史宮殿建築</li><li class="stay-feature">典雅住宿空間，提供完善休閒設施</li></ul></div>
+              </div>
+        </article>
+        <article class="day reveal">
+          <div class="day-media">
+            <img src="assets/day05/D5_Hero.webp" alt="威尼斯全日遊" loading="lazy">
+            <div class="day-media-scrim"></div>
+            <div class="day-media-text">
+              <span class="day-num">Day 5</span>
+              <h3 class="day-city">威尼斯全日遊</h3>
+              <p class="day-tagline">深探水都，細味威尼斯迷人風情</p>
+            </div>
+          </div>
+          <div class="day-content">
+            
+            <div class="fac-block">
+              <div class="fac-head"><span class="fac-tag">行程</span></div><div class="factor-images factor-images--itinerary" aria-label="第 5 天itinerary圖片"><figure class="factor-image"><img src="assets/day05/D5_Itinerary_Regular.webp" alt="第 5 天今日行程" loading="lazy" decoding="async"><figcaption>今日行程</figcaption></figure></div>
+              <div class="timeline"><div class="tl-item"><div class="tl-time">行程</div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">上午前往參觀歐洲最具代表性的里亞托市場，感受當地攤販與漁市的熱絡氛圍</div></div></div><div class="tl-item"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">隨後參觀威尼斯傳統面具工坊，由導覽人員介紹面具製作工藝</div></div></div><div class="tl-item" aria-hidden="true" style="visibility:hidden"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title"> </div></div></div></div></div>
+            <div class="fac-block">
+                <div class="fac-head fac-head--with-icon"><img class="fac-icon" src="assets/icons/dining.svg" alt="" aria-hidden="true"><span class="fac-tag">餐食</span></div><div class="factor-images factor-images--dining" aria-label="第 5 天dining圖片"><figure class="factor-image"><img src="assets/day05/D5_Breakfast_Luxury.webp" alt="第 5 天早餐：主廚現點現做早餐（A la Carte）" loading="lazy" decoding="async"><figcaption><strong>早餐</strong><span>主廚現點現做早餐（A la Carte）</span></figcaption></figure><figure class="factor-image"><img src="assets/day05/D5_Lunch_Luxury.webp" alt="第 5 天午餐：義式海鮮料理（含佐餐酒）" loading="lazy" decoding="async"><figcaption><strong>午餐</strong><span>義式海鮮料理（含佐餐酒）</span></figcaption></figure><figure class="factor-image"><img src="assets/day05/D5_Dinner_Luxury.webp" alt="第 5 天晚餐：米其林三道式晚宴（含佐餐酒）" loading="lazy" decoding="async"><figcaption><strong>晚餐</strong><span>米其林三道式晚宴（含佐餐酒）</span></figcaption></figure></div>
+                <ul class="fac-list"><li>餐廳位於威尼斯運河畔，提供精緻義式料理，由主廚介紹今日特色餐點</li></ul></div>
+            <div class="fac-block">
+                <div class="fac-head fac-head--with-icon"><img class="fac-icon" src="assets/icons/hotel.svg" alt="" aria-hidden="true"><span class="fac-tag">住宿</span></div><div class="factor-images factor-images--stay" aria-label="第 5 天stay圖片"><figure class="factor-image"><img src="assets/day05/D5_Hotel_Exterior_Luxury.webp" alt="第 5 天住宿外觀" loading="lazy" decoding="async"><figcaption>住宿外觀</figcaption></figure><figure class="factor-image"><img src="assets/day05/D5_Room_Luxury.webp" alt="第 5 天客房" loading="lazy" decoding="async"><figcaption>客房</figcaption></figure><figure class="factor-image"><img src="assets/day05/D5_Bathroom_Luxury.webp" alt="第 5 天衛浴" loading="lazy" decoding="async"><figcaption>衛浴</figcaption></figure></div>
+                <ul class="fac-list"><li>威尼斯運河五星 Palazzo Serenissima Venezia</li><li>《安縵威尼斯宮廷大運河房》約60平米，帶有運河景觀和浴缸</li><li class="stay-feature-title">住宿特色</li><li class="stay-feature">坐擁威尼斯大運河景觀，融合歷史宮殿建築</li><li class="stay-feature">典雅住宿空間，提供完善休閒設施</li></ul></div>
+              </div>
+        </article>
+        <article class="day reveal">
+          <div class="day-media">
+            <img src="assets/day06/D6_Hero.webp" alt="米蘭" loading="lazy">
+            <div class="day-media-scrim"></div>
+            <div class="day-media-text">
+              <span class="day-num">Day 6</span>
+              <h3 class="day-city">米蘭</h3>
+              <p class="day-tagline">時尚之都，藝術與設計的交融</p>
+            </div>
+          </div>
+          <div class="day-content">
+            
+            <div class="fac-block">
+              <div class="fac-head"><span class="fac-tag">行程</span></div><div class="factor-images factor-images--itinerary" aria-label="第 6 天itinerary圖片"><figure class="factor-image"><img src="assets/day06/D6_Itinerary_Regular.webp" alt="第 6 天今日行程" loading="lazy" decoding="async"><figcaption>今日行程</figcaption></figure></div>
+              <div class="timeline"><div class="tl-item"><div class="tl-time">行程</div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">早餐後，前往米蘭大教堂，世界第三大教堂，外觀雄偉典雅，舉世無雙</div></div></div><div class="tl-item"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">前往參觀感恩聖母教堂，珍藏達文西真跡《最後的晚餐》</div></div></div><div class="tl-item"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">隨後前往艾曼紐二世拱廊，匯集各式高貴商家，是米蘭最繁華地區</div></div></div></div></div>
+            <div class="fac-block">
+                <div class="fac-head fac-head--with-icon"><img class="fac-icon" src="assets/icons/dining.svg" alt="" aria-hidden="true"><span class="fac-tag">餐食</span></div><div class="factor-images factor-images--dining" aria-label="第 6 天dining圖片"><figure class="factor-image"><img src="assets/day06/D6_Breakfast_Luxury.webp" alt="第 6 天早餐：主廚現點現做早餐（A la Carte）" loading="lazy" decoding="async"><figcaption><strong>早餐</strong><span>主廚現點現做早餐（A la Carte）</span></figcaption></figure><figure class="factor-image"><img src="assets/day06/D6_Lunch_Luxury.webp" alt="第 6 天午餐：米其林推薦中式粵菜(含飲品)" loading="lazy" decoding="async"><figcaption><strong>午餐</strong><span>米其林推薦中式粵菜(含飲品)</span></figcaption></figure><figure class="factor-image"><img src="assets/day06/D6_Dinner_Luxury.webp" alt="第 6 天晚餐：於聖瑪利亞感恩餐廳欣賞《最後的晚餐》真跡，並享用私人晚餐" loading="lazy" decoding="async"><figcaption><strong>晚餐</strong><span>於聖瑪利亞感恩餐廳欣賞《最後的晚餐》真跡，並享用私人晚餐</span></figcaption></figure></div>
+                <ul class="fac-list"><li>餐廳位於聖瑪利亞感恩教堂，提供精緻義式料理，由主廚介紹今日特色餐點</li></ul></div>
+            <div class="fac-block">
+                <div class="fac-head fac-head--with-icon"><img class="fac-icon" src="assets/icons/hotel.svg" alt="" aria-hidden="true"><span class="fac-tag">住宿</span></div><div class="factor-images factor-images--stay" aria-label="第 6 天stay圖片"><figure class="factor-image"><img src="assets/day06/D6_Hotel_Exterior_Luxury.webp" alt="第 6 天住宿外觀" loading="lazy" decoding="async"><figcaption>住宿外觀</figcaption></figure><figure class="factor-image"><img src="assets/day06/D6_Room_Luxury.webp" alt="第 6 天客房" loading="lazy" decoding="async"><figcaption>客房</figcaption></figure><figure class="factor-image"><img src="assets/day06/D6_Bathroom_Luxury.webp" alt="第 6 天衛浴" loading="lazy" decoding="async"><figcaption>衛浴</figcaption></figure></div>
+                <ul class="fac-list"><li>米蘭市區五星 Palazzo Bellavita Milano</li><li>《城市景觀豪華房》約40平方公尺，帶有陽台和浴缸</li><li class="stay-feature-title">住宿特色</li><li class="stay-feature">飯店位於米蘭市中心，融合義式好客精神與法式風情</li><li class="stay-feature">館內設有特色庭園空間，提供典雅休憩環境</li></ul></div>
+              </div>
+        </article>
+        <article class="day reveal">
+          <div class="day-media">
+            <img src="assets/day07/D7_Hero.webp" alt="返程台北" loading="lazy">
+            <div class="day-media-scrim"></div>
+            <div class="day-media-text">
+              <span class="day-num">Day 7</span>
+              <h3 class="day-city">返程台北</h3>
+              <p class="day-tagline">帶著滿滿回憶，期待下次相遇</p>
+            </div>
+          </div>
+          <div class="day-content">
+            
+            <div class="fac-block">
+              <div class="fac-head"><span class="fac-tag">行程</span></div><div class="factor-images factor-images--itinerary" aria-label="第 7 天itinerary圖片"><figure class="factor-image"><img src="assets/day07/D7_Itinerary_Regular.webp" alt="第 7 天今日行程" loading="lazy" decoding="async"><figcaption>今日行程</figcaption></figure></div>
+              <div class="timeline"><div class="tl-item"><div class="tl-time">行程</div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">根據航班時間，乘車前往機場，搭乘航班開啟下一段旅程，或返回溫馨的家！</div></div></div><div class="tl-item"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title">期待與您再次相會！</div></div></div><div class="tl-item" aria-hidden="true" style="visibility:hidden"><div class="tl-time"></div><div class="tl-node"></div><div class="tl-content"><div class="tl-title"> </div></div></div></div></div>
+            <div class="fac-block">
+              <div class="fac-head fac-head--with-icon"><img class="fac-icon" src="assets/icons/dining.svg" alt="" aria-hidden="true"><span class="fac-tag">餐食</span></div><div class="factor-images factor-images--dining" aria-label="第 7 天dining圖片"><figure class="factor-image"><img src="assets/day07/D7_Breakfast_Luxury.webp" alt="第 7 天早餐：飯店單點式早餐（A la Carte）" loading="lazy" decoding="async"><figcaption><strong>早餐</strong><span>飯店單點式早餐（A la Carte）</span></figcaption></figure><figure class="factor-image"><img src="assets/day07/D7_Lunch_Luxury.webp" alt="第 7 天午餐：機上" loading="lazy" decoding="async"><figcaption><strong>午餐</strong><span>機上</span></figcaption></figure><figure class="factor-image"><img src="assets/day07/D7_Dinner_Luxury.webp" alt="第 7 天晚餐：機上" loading="lazy" decoding="async"><figcaption><strong>晚餐</strong><span>機上</span></figcaption></figure></div>
+              </div>
+          </div>
+        </article>
+</main>
+<footer>
+<div class="f-logo">雲品旅遊 NUVOLA BELLA TRAVEL</div>
+  <div class="f-tag">旅行，是最美好的投資</div>
+  <div class="f-links">
+    <a href="#">關於我們</a><a href="#">旅遊條款</a><a href="#">隱私政策</a><a href="#">聯絡我們</a>
+  </div>
+<div class="f-copy">© 2026 雲品旅遊 NUVOLA BELLA TRAVEL</div>
+</footer>
+<script>
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
+
+
+
+
+
+
