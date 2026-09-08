@@ -14,6 +14,14 @@ nav{background:rgba(22,38,28,.96);-webkit-backdrop-filter:blur(10px);padding-top
 .route{scrollbar-width:thin;-webkit-overflow-scrolling:touch}
 .factor-image img,.daily-shot img,.day-media img,.hero img.bg{-webkit-user-drag:none}
 
+/* Keep every section from the route map onward consistently wide on desktop. */
+@media (min-width:1100px){
+  .route-map{padding-left:clamp(32px,3vw,64px);padding-right:clamp(32px,3vw,64px)}
+  .route-map-inner{width:100%;max-width:none}
+  main{width:100%;max-width:none;padding-left:clamp(32px,3vw,64px);padding-right:clamp(32px,3vw,64px)}
+  .day{width:100%}
+}
+
 @media (hover:none),(pointer:coarse){
   .day:hover .day-media img,.daily-shot:hover img,.factor-image:hover img{transform:none}
   .nav-r a,.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
